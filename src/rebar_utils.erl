@@ -41,7 +41,8 @@
          find_executable/1,
          prop_check/3,
          expand_code_path/0,
-         deprecated/4, deprecated/5]).
+         deprecated/4, deprecated/5,
+         test_dir/0, ebin_dir/0]).
 
 -include("rebar.hrl").
 
@@ -174,6 +175,12 @@ expand_code_path() ->
                                    [filename:absname(Path) | Acc]
                            end, [], code:get_path()),
     code:set_path(lists:reverse(CodePath)).
+
+test_dir() ->
+    filename:join(rebar_utils:get_cwd(), ?TEST_DIR).
+
+ebin_dir() ->
+    filename:join(rebar_utils:get_cwd(), "ebin").
 
 
 %% ====================================================================
