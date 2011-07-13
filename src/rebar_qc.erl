@@ -39,7 +39,7 @@ qc(Config, _AppFile) ->
     QCOpts = rebar_config:get(Config, qc_opts, []),
     QC = select_qc_lib(QCOpts),
     ?DEBUG("Selected QC library: ~p~n", [QC]),
-    run(Config, QC, QCOpts -- [{qc, QC}]).
+    run(Config, QC, QCOpts -- [{qc_lib, QC}]).
 
 %% ===================================================================
 %% Internal functions
